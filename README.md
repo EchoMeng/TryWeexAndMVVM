@@ -8,6 +8,7 @@ Learn Weex and MVVM
 三、weex相关。
 
 ## 一、整理一点点简单的前端
+主要参考：《HTML、XHTML和CSS宝典（第5版）》、《JavaScript DOM编程艺术》
 
 ### HTML、 CSS
 
@@ -175,4 +176,9 @@ e.g. description.childNodes[0].nodeValue
 2. 分离JaveScript：把网页的结构和内容与JaveScript脚本的动作行为分开；
 3. 向后兼容性：确保老版本的浏览器不会因为你的JaveScript而死机。
 
+#### 动态创建HTML内容:DOM提供的方法
 
+1. createElement()：创建元素节点
+2. appendChild()：使新节点称为已有节点的子节点
+3. createTextNode()：创建文本节点
+4. insertBefore()：把一个新元素插入到现有元素前面，两个元素有相同父元素
