@@ -5,7 +5,9 @@ Learn Weex and MVVM
 
 二、MVVM设计模式相关；
 
-三、Vue相关。
+三、Vue和Node相关；
+
+四、Weex相关。
 
 ## 一、整理一点点简单的前端
 主要参考：《HTML、XHTML和CSS宝典（第5版）》、《JavaScript DOM编程艺术》
@@ -201,7 +203,13 @@ MVVM:Model-View-ViewModel
 * model ：与 MVC 中的 model 一致，包括数据模型、访问数据库的操作和网络请求等；
 * binder ：在 MVVM 中，声明式的数据和命令绑定是一个隐含的约定，它可以让开发者非常方便地实现 view 和 viewModel 的同步，避免编写大量繁杂的样板化代码。
 
-## 三、Vue
+## 三、Vue和Node
+
+#### What is Node.js?
+[Node.js v10.8.0 文档](http://nodejs.cn/api/)<br>
+>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 
+<br>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 
+<br>Node.js 的包管理器 npm，是全球最大的开源库生态系统。
 
 #### What is Vue?  
 
@@ -212,44 +220,59 @@ MVVM:Model-View-ViewModel
 [在Mac环境下搭建Vue.js开发环境](https://www.jianshu.com/p/918314e9f757)
 
 1. 安装homebrew
-<br>`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`</br>
-<br>注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到/usr/local目录不可写的权限问题。可以使用下面的命令修复：</br>
-<br>`sudo chown -R `whoami` /usr/local`</br>
-<br>在终端输入brew -v,如果能查询到brew的版本信息，那么恭喜你安装成功。可以继续往下撸了</br>
+<br>`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`<br/>
+<br>注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到/usr/local目录不可写的权限问题。可以使用下面的命令修复：<br/>
+<br>`sudo chown -R `whoami` /usr/local`<br/>
+<br>在终端输入brew -v,如果能查询到brew的版本信息，那么恭喜你安装成功。可以继续往下撸了<br/>
 
 2. 使用homebrew安装node.js
-<br>`brew install node`</br>
-<br>同上，如果在终端输入node -v 能够查询到版本信息，就说明安装成功。</br>
+<br>`brew install node`<br/>
+<br>同上，如果在终端输入node -v 能够查询到版本信息，就说明安装成功。<br/>
 
 3. 获取nodejs模块安装目录访问权限
-<br>`sudo chmod -R 777 /usr/local/lib/node_modules/`</br>
+<br>`sudo chmod -R 777 /usr/local/lib/node_modules/`<br/>
 
 4. 安装全局的webpack
-<br>`npm install webpack -g`</br>
+<br>`npm install webpack -g`<br/>
 
 5. 安装vue脚手架vue-cli
-<br>`npm install vue-cli -g`</br>
+<br>`npm install vue-cli -g`<br/>
 
 6. 找一个合适的位置存放你的vue工程
-<br>`cd 目录路径 `</br>
-<br>注：目录路径直接把创建好的文件夹拖拽到终端里就可以</br>
+<br>`cd 目录路径 `<br/>
+<br>注：目录路径直接把创建好的文件夹拖拽到终端里就可以<br/>
 
 7. 创建项目
-<br>`vue init webpack-simple 项目名`</br>
-<br>如：`vue init webpack-simple vue2demo`</br>
-<br>注：项目名不可以使用中文，也不能使用大写字母</br>
-<br>创建项目之后会出现一系列的参数配置，根据自己的情况 进行选择，因为最后2个的配置具体是啥意思我也没搞懂呢</br>
+<br>`vue init webpack-simple 项目名`<br/>
+<br>如：`vue init webpack-simple vue2demo`<br/>
+<br>注：项目名不可以使用中文，也不能使用大写字母<br/>
+<br>创建项目之后会出现一系列的参数配置，根据自己的情况 进行选择，因为最后2个的配置具体是啥意思我也没搞懂呢<br/>
 
 8. 将根目录切换到项目
-<br>`cd 项目名`</br>
-<br>如：`cd vue2demo`</br>
+<br>`cd 项目名`<br/>
+<br>如：`cd vue2demo`
 
 9. 安装项目依赖
-<br>`npm install`</br>
+<br>`npm install`<br/>
 
 10. 安装 vue 路由模块vue-router和网络请求模块vue-resource
-<br>`npm install vue-router vue-resource --save`</br>
+<br>`npm install vue-router vue-resource --save`<br/>
 
 11. 启动项目
-<br>`npm run dev`</br>
+<br>`npm run dev`<br/>
+
+#### 搭建Vue遇到的坑：
+1. localhost:8080无法打开<br>两个原因：一个是Chrome浏览器的vue插件中访问本地文件开关未打开，二是设置了代理
+2. 使用vscode的debugger for Chrome插件时不能连接到Chrome浏览器：<br>很玄幻，将浏览器进程杀掉或者是关机重启之后成功了
+
+[Vue.js 教程-菜鸟教程](http://www.runoob.com/vue2/vue-tutorial.html)
+菜鸟教程里面有基本的vue方法，可以简单借鉴
+
+## 四、Weex
+
+####What is Weex?
+> Weex 是一个使用 Web 开发体验来开发高性能原生应用的框架。
+<br><br>Weex 致力于使开发者能基于当代先进的 Web 开发技术，使用同一套代码来构建 Android、iOS 和 Web 应用。具体来讲，在集成了 WeexSDK 之后，你可以使用 JavaScript 和现代流行的前端框架来开发移动应用。
+<br>Weex 的结构是解耦的，渲染引擎与语法层是分开的，也不依赖任何特定的前端框架，目前主要支持 Vue.js 和 Rax 这两个前端框架。
+<br>Weex 的另一个主要目标是跟进当代先进的 Web 开发和原生开发的技术，使生产力和性能共存。在开发 Weex 页面就像开发普通网页一样；在渲染 Weex 页面时和渲染原生页面一样。
 
