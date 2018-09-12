@@ -5,7 +5,7 @@ Learn Weex and MVVM
 
 二、MVVM设计模式相关；
 
-三、weex相关。
+三、Vue相关。
 
 ## 一、整理一点点简单的前端
 主要参考：《HTML、XHTML和CSS宝典（第5版）》、《JavaScript DOM编程艺术》
@@ -202,6 +202,11 @@ MVVM:Model-View-ViewModel
 * binder ：在 MVVM 中，声明式的数据和命令绑定是一个隐含的约定，它可以让开发者非常方便地实现 view 和 viewModel 的同步，避免编写大量繁杂的样板化代码。
 
 ## 三、Vue
+
+#### What is Vue?  
+
+[Vue.js](https://cn.vuejs.org/)
+> Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
 
 #### 环境搭建
 [在Mac环境下搭建Vue.js开发环境](https://www.jianshu.com/p/918314e9f757)
