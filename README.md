@@ -101,8 +101,8 @@ value为属性分配值。
 例如，有一些伪类用于修改文档中已经访问的锚链和违背访问的锚链。如果使用伪类，就不必在每个锚链的标签中指定类，用户代理回判断哪些锚链属于那些类，并在用户浏览网页的时候实时地应用合适的判断。
 
 * 锚链样式：未被访问的链接、已经访问过的链接、鼠标在浏览器中正在经过的链接等；
-* ：first-child伪类：用于将样式定义分配给特定元素的第一个子元素，可以用这个伪类为第一个子元素增加更多的空间或者修改第一个子元素格式化；
-* ：lang伪类：用于根据文档使用的语言修改元素。
+* `：first-child`伪类：用于将样式定义分配给特定元素的第一个子元素，可以用这个伪类为第一个子元素增加更多的空间或者修改第一个子元素格式化；
+* `：lang`伪类：用于根据文档使用的语言修改元素。
 
 #### 伪元素：
 
@@ -112,7 +112,7 @@ value为属性分配值。
 
 层级指样式在文档上的关联效果是层级的。在文档上应用的样式可以有多个来源：
 
-1. 作者样式：文档作者包含的样式，或者是直接嵌在文档头部、链接在单独的样式表中（使用\<link>标签或者CSS的@import规则）、或者在单个元素内。这些样式代表作者期望文档显示的样式。
+1. 作者样式：文档作者包含的样式，或者是直接嵌在文档头部、链接在单独的样式表中（使用\<link>标签或者CSS的`@import`规则）、或者在单个元素内。这些样式代表作者期望文档显示的样式。
 2. 用户样式：最终用户为文档指定采用的样式。这些样式由最终用户从本地样式表中选择，可以用来修改文档的默认外观。
 3. 用户代理样式：在特定元素或者文档上没有指定其他样式时，用户代理默认使用的样式。
 
@@ -121,7 +121,7 @@ value为属性分配值。
 确定层级排序顺序的实际机制：
 
 1. 取出应用到元素和属性的所有定义；
-2. 按权重和来源对定义排序：作者样式》用户样式》用户代理样式。对于！important定义，用户样式比作者样式优先。所有！important定义比普通定义优先。导入的定义被认为与导入它们的样式表同源；
+2. 按权重和来源对定义排序：作者样式》用户样式》用户代理样式。对于`!important`定义，用户样式比作者样式优先。所有`!important`定义比普通定义优先。导入的定义被认为与导入它们的样式表同源；
 3. 按选择器的具体程度对定义排序：具体选择器比通用选择器优先；
 4. 按定义的指定顺序排序：如果连个定义有相同的权重、来源和具体程度，那么最后一个指定的定义优先。导入的样式表中的规则比样式表本省的规则优先。
 
@@ -159,16 +159,16 @@ JavaScript不要求编程时进行类型声明，被称为弱类型。（反之�
 3. 属性节点：nodeType属性值是2，属性节点总是被包含在元素节点中。
 
 #### DOM Core几个关键函数：
-* getElementById()
-* getElementsByTagName()
-* getAttribute()
-* setAttribute()
+* `getElementById()`
+* `getElementsByTagName()`
+* `getAttribute()`
+* `setAttribute()`
 
 #### 包含在\<p>中的子节点：
 
 包含在\<p>元素里的文本是另一种节点，它在DOM里是\<p>元素的第一个子节点。如果想获得\<p>元素的文本内容，必须检索它的第一个子节点的nodeValue属性值。
 
-e.g. description.childNodes[0].nodeValue
+e.g. `description.childNodes[0].nodeValue`
 
 #### JavaScript几个编程原则：
 
@@ -178,7 +178,73 @@ e.g. description.childNodes[0].nodeValue
 
 #### 动态创建HTML内容:DOM提供的方法
 
-1. createElement()：创建元素节点
-2. appendChild()：使新节点称为已有节点的子节点
-3. createTextNode()：创建文本节点
-4. insertBefore()：把一个新元素插入到现有元素前面，两个元素有相同父元素
+1. `createElement()`：创建元素节点
+2. `appendChild()`：使新节点称为已有节点的子节点
+3. `createTextNode()`：创建文本节点
+4. `insertBefore()`：把一个新元素插入到现有元素前面，两个元素有相同父元素
+
+
+## 二、什么是MVVM设计模式
+
+[MVVM With ReactiveCocoa-雷纯锋的技术博客](http://blog.leichunfeng.com/blog/2016/02/27/mvvm-with-reactivecocoa/)
+
+[被误解的 MVC 和被神化的 MVVM-唐巧的博客](https://blog.devtang.com/2015/11/02/mvc-and-mvvm/)
+
+MVVM:Model-View-ViewModel
+
+在 iOS 开发中实践MVVM，通常会把大量原来放在 ViewController 里的视图逻辑和数据逻辑移到 ViewModel 里，从而有效的减轻了 ViewController 的负担。MVVM 通常还会和一个强大的绑定机制一同工作，一旦 ViewModel 所对应的 Model 发生变化时，ViewModel 的属性也会发生变化，而相对应的 View 也随即产生变化。
+
+除了 view 、viewModel 和 model 之外，MVVM 中还有一个非常重要的隐含组件 binder：
+
+* view ：由 MVC 中的 view 和 controller 组成，负责 UI 的展示，绑定 viewModel 中的属性，触发 viewModel 中的命令；
+* viewModel ：从 MVC 的 controller 中抽取出来的展示逻辑，负责从 model 中获取 view 所需的数据，转换成 view 可以展示的数据，并暴露公开的属性和命令供 view 进行绑定；
+* model ：与 MVC 中的 model 一致，包括数据模型、访问数据库的操作和网络请求等；
+* binder ：在 MVVM 中，声明式的数据和命令绑定是一个隐含的约定，它可以让开发者非常方便地实现 view 和 viewModel 的同步，避免编写大量繁杂的样板化代码。
+
+## 三、Vue
+
+#### 环境搭建
+[在Mac环境下搭建Vue.js开发环境](https://www.jianshu.com/p/918314e9f757)
+
+1. 安装homebrew
+<p>`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+<p>注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到/usr/local目录不可写的权限问题。可以使用下面的命令修复：
+<p>`sudo chown -R `whoami` /usr/local`
+<p>在终端输入brew -v,如果能查询到brew的版本信息，那么恭喜你安装成功。可以继续往下撸了
+
+2. 使用homebrew安装node.js
+<p>`brew install node`
+<p>同上，如果在终端输入node -v 能够查询到版本信息，就说明安装成功。
+
+3. 获取nodejs模块安装目录访问权限
+<p>`sudo chmod -R 777 /usr/local/lib/node_modules/`
+
+4. 安装全局的webpack
+<p>`npm install webpack -g`
+
+5. 安装vue脚手架vue-cli
+<p>`npm install vue-cli -g`
+
+6. 找一个合适的位置存放你的vue工程
+<p>`cd 目录路径 `
+<p>注：目录路径直接把创建好的文件夹拖拽到终端里就可以
+
+7. 创建项目
+<p>`vue init webpack-simple 项目名`
+<p>如：`vue init webpack-simple vue2demo`
+<p>注：项目名不可以使用中文，也不能使用大写字母
+<p>创建项目之后会出现一系列的参数配置，根据自己的情况 进行选择，因为最后2个的配置具体是啥意思我也没搞懂呢
+
+8. 将根目录切换到项目
+<p>`cd 项目名`
+<p>如：`cd vue2demo`
+
+9. 安装项目依赖
+<p>`npm install`
+
+10. 安装 vue 路由模块vue-router和网络请求模块vue-resource
+<p>`npm install vue-router vue-resource --save`
+
+11. 启动项目
+<p>`npm run dev`
+
