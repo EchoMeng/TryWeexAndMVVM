@@ -212,10 +212,10 @@ MVVM:Model-View-ViewModel
 [在Mac环境下搭建Vue.js开发环境](https://www.jianshu.com/p/918314e9f757)
 
 1. 安装homebrew
-<p>`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-<p>注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到/usr/local目录不可写的权限问题。可以使用下面的命令修复：
-<p>`sudo chown -R `whoami` /usr/local`
-<p>在终端输入brew -v,如果能查询到brew的版本信息，那么恭喜你安装成功。可以继续往下撸了
+<p>`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`</p>
+<p>注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到/usr/local目录不可写的权限问题。可以使用下面的命令修复：</p>
+<p>`sudo chown -R `whoami` /usr/local`</p>
+<p>在终端输入brew -v,如果能查询到brew的版本信息，那么恭喜你安装成功。可以继续往下撸了</p>
 
 2. 使用homebrew安装node.js
 <p>`brew install node`
