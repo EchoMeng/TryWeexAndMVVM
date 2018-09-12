@@ -218,38 +218,38 @@ MVVM:Model-View-ViewModel
 <br>在终端输入brew -v,如果能查询到brew的版本信息，那么恭喜你安装成功。可以继续往下撸了</br>
 
 2. 使用homebrew安装node.js
-<p>`brew install node`
-<p>同上，如果在终端输入node -v 能够查询到版本信息，就说明安装成功。
+<br>`brew install node`</br>
+<br>同上，如果在终端输入node -v 能够查询到版本信息，就说明安装成功。</br>
 
 3. 获取nodejs模块安装目录访问权限
-<p>`sudo chmod -R 777 /usr/local/lib/node_modules/`
+<br>`sudo chmod -R 777 /usr/local/lib/node_modules/`</br>
 
 4. 安装全局的webpack
-<p>`npm install webpack -g`
+<br>`npm install webpack -g`</br>
 
 5. 安装vue脚手架vue-cli
-<p>`npm install vue-cli -g`
+<br>`npm install vue-cli -g`</br>
 
 6. 找一个合适的位置存放你的vue工程
-<p>`cd 目录路径 `
-<p>注：目录路径直接把创建好的文件夹拖拽到终端里就可以
+<br>`cd 目录路径 `</br>
+<br>注：目录路径直接把创建好的文件夹拖拽到终端里就可以</br>
 
 7. 创建项目
-<p>`vue init webpack-simple 项目名`
-<p>如：`vue init webpack-simple vue2demo`
-<p>注：项目名不可以使用中文，也不能使用大写字母
-<p>创建项目之后会出现一系列的参数配置，根据自己的情况 进行选择，因为最后2个的配置具体是啥意思我也没搞懂呢
+<br>`vue init webpack-simple 项目名`</br>
+<br>如：`vue init webpack-simple vue2demo`</br>
+<br>注：项目名不可以使用中文，也不能使用大写字母</br>
+<br>创建项目之后会出现一系列的参数配置，根据自己的情况 进行选择，因为最后2个的配置具体是啥意思我也没搞懂呢</br>
 
 8. 将根目录切换到项目
-<p>`cd 项目名`
-<p>如：`cd vue2demo`
+<br>`cd 项目名`</br>
+<br>如：`cd vue2demo`</br>
 
 9. 安装项目依赖
-<p>`npm install`
+<br>`npm install`</br>
 
 10. 安装 vue 路由模块vue-router和网络请求模块vue-resource
-<p>`npm install vue-router vue-resource --save`
+<br>`npm install vue-router vue-resource --save`</br>
 
 11. 启动项目
-<p>`npm run dev`
+<br>`npm run dev`</br>
 
