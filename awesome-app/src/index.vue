@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <image :src="logo" class="logo" />
-    <text class="greeting">The environment is ready!</text>
+    <text class="greeting">第一个WEEX应用</text>
     <router-view/>
   </div>
 </template>
