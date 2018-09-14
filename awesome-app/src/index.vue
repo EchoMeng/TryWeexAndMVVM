@@ -1,40 +1,22 @@
 <template>
-  <div class="wrapper">
-    <image :src="logo" class="logo" />
-    <text class="greeting">第一个WEEX应用</text>
-    <router-view/>
+  <div class="app-wrapper">
+    <router-view class="r-box"></router-view>
+    <bottom-bar @tabTo='onTabTo'></bottom-bar>
   </div>
 </template>
-
+<style>
+</style>
 <script>
+import bottombar from './components/bottombar.vue'
 export default {
-  name: 'App',
-  data () {
-    return {
-      logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png'
+  components: {
+    'bottom-bar': bottombar
+  },
+  methods: {
+    onTabTo (_result) {
+      let _key = _result.data.key || ''
+      this.$router && this.$router.push('/' + _key)
     }
   }
 }
 </script>
-
-<style scoped>
-  .wrapper {
-    justify-content: center;
-    align-items: center;
-  }
-  .logo {
-    width: 424px;
-    height: 200px;
-  }
-  .greeting {
-    text-align: center;
-    margin-top: 70px;
-    font-size: 50px;
-    color: #41B883;
-  }
-  .message {
-    margin: 30px;
-    font-size: 32px;
-    color: #727272;
-  }
-</style>

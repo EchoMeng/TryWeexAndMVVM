@@ -276,3 +276,4 @@ MVVM:Model-View-ViewModel
 <br>Weex 的结构是解耦的，渲染引擎与语法层是分开的，也不依赖任何特定的前端框架，目前主要支持 Vue.js 和 Rax 这两个前端框架。
 <br>Weex 的另一个主要目标是跟进当代先进的 Web 开发和原生开发的技术，使生产力和性能共存。在开发 Weex 页面就像开发普通网页一样；在渲染 Weex 页面时和渲染原生页面一样。
 
+[网易严选App感受Weex开发（已完结）](https://segmentfault.com/a/1190000011027225)

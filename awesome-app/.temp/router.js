@@ -1,7 +1,7 @@
 import Vue from 'vue'
 /* global Vue */
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import bottombar from '@/components/bottombar'
 
 Vue.use(Router)
 
@@ -9,8 +9,8 @@ module.exports = new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'bottombar',
+      component: bottombar
     }
   ]
 })
