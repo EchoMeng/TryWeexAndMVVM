@@ -154,6 +154,66 @@ JavaScript不要求编程时进行类型声明，被称为弱类型。（反之�
 2. 内建对象：内建在JavaScript语言中的对象，例如Array, Math, Data等；
 3. 宿主对象：由浏览器提供的对象。
 
+#### JavaScript中声明函数的几种方法
+[JavaScript标准参考教程](http://javascript.ruanyifeng.com/grammar/function.html)
+
+JavaScript 语言将函数看作一种值，与其它值（数值、字符串、布尔值等等）地位相同。凡是可以使用值的地方，就能使用函数。比如，可以把函数赋值给变量和对象的属性，也可以当作参数传入其他函数，或者作为函数的结果返回。函数只是一个可以执行的值，此外并无特殊之处。
+
+1. `function()`命令
+
+
+```JavaScript
+function print(s) {
+	console.log(s);
+}
+```
+`function`命令声明的代码区块就是一个函数，`function`命令后面是函数名。以后使用`print()`这种形式，就可以调用相应的代码，这种叫做函数的声明。<br>
+2. 函数表达式
+
+采用变量赋值的写法
+
+```
+var print = function(s) {
+	console.log(s);
+};
+```
+
+这种写法将一个匿名函数赋值给变量，这是，这个匿名函数又称为函数表达式。采用函数表达式声明函数时，function命令后面不带有函数名，如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。
+
+```
+var print = function x() {
+	console.log(typeod x);
+};
+
+x;
+// ReferenceError: x is not defined
+
+print();
+// function
+ 
+```
+
+在上面的到面的函数表达式中，加上了函数名x，这个函数名只有在函数体内部中可以使用，知道函数表达式本身，其他地方都不可用。这种写法有两种用处，第一，可以在函数体内部调用自身，第二，可以方便debug。debug工具显示函数调用栈时，将显示函数名，而不再显示这里是一个匿名函数。<br>
+3. Function构造函数
+
+```
+var add = new Function(
+	'x',
+	'y',
+	'return x + y'
+);
+
+// 等同于
+function add(x, y) {
+	return x + y;
+}
+```
+上述代码中，Function构造函数接受三个参数，除了最后一个参数时add函数的“函数体”，其他参数都是函数的参数。
+
+可以传递任意数量的参数给Function构造函数，只有最后一个参数会被当作函数体，如果只有一个参数，该参数就是函数体。
+
+
+
 #### 节点：
 
 1. 元素节点：nodeType属性值是1；
@@ -277,3 +337,14 @@ MVVM:Model-View-ViewModel
 <br>Weex 的另一个主要目标是跟进当代先进的 Web 开发和原生开发的技术，使生产力和性能共存。在开发 Weex 页面就像开发普通网页一样；在渲染 Weex 页面时和渲染原生页面一样。
 
 [网易严选App感受Weex开发（已完结）](https://segmentfault.com/a/1190000011027225)
+
+#### 几个关键的命令行
+1. `npm run dev` 启动项目（需要在项目文件夹中）
+2. `npm run serve` 网页预览
+2. `weexpack run ios` 打包iOS项目并模拟器运行
+3.  `weexpack build ios` 构建ipa包
+
+#### 几点小规范
+1. 方法和css{}前要有空格；
+2. 行末不要有多余的空格；
+3. 方法行末位不需要分号；

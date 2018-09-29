@@ -120,7 +120,7 @@ module.exports = __vue_exports__
 
 /* weex initialized here, please do not move this line */
 var router = __webpack_require__(2);
-var App = __webpack_require__(7);
+var App = __webpack_require__(19);
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({ el: '#root', router: router }, App));
 router.push('/');
@@ -140,8 +140,27 @@ var _bottombar = __webpack_require__(0);
 
 var _bottombar2 = _interopRequireDefault(_bottombar);
 
+var _home = __webpack_require__(7);
+
+var _home2 = _interopRequireDefault(_home);
+
+var _book = __webpack_require__(10);
+
+var _book2 = _interopRequireDefault(_book);
+
+var _duty = __webpack_require__(13);
+
+var _duty2 = _interopRequireDefault(_duty);
+
+var _meeting = __webpack_require__(16);
+
+var _meeting2 = _interopRequireDefault(_meeting);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* four tabbar page */
+
+/* four tabbar page */
 /* global Vue */
 Vue.use(_vueRouter2.default);
 
@@ -150,6 +169,22 @@ module.exports = new _vueRouter2.default({
     path: '/',
     name: 'bottombar',
     component: _bottombar2.default
+  }, {
+    path: '/',
+    name: 'HomeView',
+    component: _home2.default
+  }, {
+    path: '/',
+    name: 'BookView',
+    component: _book2.default
+  }, {
+    path: '/',
+    name: 'DutyView',
+    component: _duty2.default
+  }, {
+    path: '/',
+    name: 'MeetingView',
+    component: _meeting2.default
   }]
 });
 
@@ -2789,34 +2824,33 @@ if (inBrowser && window.Vue) {
 /***/ (function(module, exports) {
 
 module.exports = {
-  "login": {
-    "display": "none",
+  "iconfont": {
+    "fontFamily": "iconfont"
+  },
+  "wrapper": {
     "position": "fixed",
-    "zIndex": 100,
-    "top": 0,
     "bottom": 0,
     "left": 0,
     "right": 0,
-    "backgroundColor": "#8A2BE2"
+    "height": "90",
+    "flexWrap": "nowrap",
+    "flexDirection": "row",
+    "justifyContent": "space-around",
+    "borderTopWidth": "1",
+    "borderTopColor": "#d9d9d9",
+    "backgroundColor": "#fafafa"
   },
-  "navbar": {
-    "marginTop": 2,
-    "width": 100,
-    "flexDirection": "row"
+  "bar-item": {
+    "flex": 1
   },
-  "title-link": {
+  "bar-active": {
+    "color": "#b4282d"
+  },
+  "bar-txt": {
+    "fontSize": "40",
     "paddingTop": "20",
-    "paddingRight": "20",
-    "paddingBottom": "20",
-    "paddingLeft": "20"
-  },
-  "titlename": {
-    "fontSize": "30",
-    "color": "#7FFFD4"
-  },
-  "tip": {
-    "fontSize": "20",
-    "color": "#0000FF"
+    "textAlign": "center",
+    "color": "#666666"
   }
 }
 
@@ -2880,26 +2914,16 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 exports.default = {
+  data: function data() {
+    return {
+      pIndexKey: 'home',
+      active: false,
+      login: false
+    };
+  },
+
   methods: {
     tabTo: function tabTo(_key) {
       if (this.pIndexKey === _key) return;
@@ -2921,56 +2945,45 @@ exports.default = {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.login),
-      expression: "login"
-    }],
-    staticClass: ["login"],
-    class: {
-      'active': _vm.active
-    }
-  }, [_vm._m(0)])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["head"]
-  }, [_c('text', {
-    staticClass: ["h2"]
-  }, [_vm._v("闲鱼赚钱指南")]), _c('div', {
-    staticClass: ["navbar"]
+    staticClass: ["wrapper"]
   }, [_c('div', {
-    staticClass: ["title-link"]
-  }, [_c('a', {
-    attrs: {
-      "href": ""
+    staticClass: ["bar-item"],
+    on: {
+      "click": function($event) {
+        _vm.tabTo('home')
+      }
     }
   }, [_c('text', {
-    staticClass: ["titlename"]
-  }, [_vm._v("赚钱神器")]), _c('text', {
-    staticClass: ["tip"]
-  }, [_vm._v("教你买什么更赚")])])]), _c('div', {
-    staticClass: ["title-link"]
-  }, [_c('a', {
-    attrs: {
-      "href": ""
+    staticClass: ["bar-txt"]
+  }, [_vm._v("首页")])]), _c('div', {
+    staticClass: ["bar-item"],
+    on: {
+      "click": function($event) {
+        _vm.tabTo('book')
+      }
     }
   }, [_c('text', {
-    staticClass: ["titlename"]
-  }, [_vm._v("赚钱神器")]), _c('text', {
-    staticClass: ["tip"]
-  }, [_vm._v("教你买什么更赚")])])]), _c('div', {
-    staticClass: ["title-link"]
-  }, [_c('a', {
-    attrs: {
-      "href": ""
+    staticClass: ["bar-txt"]
+  }, [_vm._v("预约")])]), _c('div', {
+    staticClass: ["bar-item"],
+    on: {
+      "click": function($event) {
+        _vm.tabTo('meeting')
+      }
     }
   }, [_c('text', {
-    staticClass: ["titlename"]
-  }, [_vm._v("赚钱神器")]), _c('text', {
-    staticClass: ["tip"]
-  }, [_vm._v("教你买什么更赚")])])])])])
-}]}
+    staticClass: ["bar-txt"]
+  }, [_vm._v("组会")])]), _c('div', {
+    staticClass: ["bar-item"],
+    on: {
+      "click": function($event) {
+        _vm.tabTo('duty')
+      }
+    }
+  }, [_c('text', {
+    staticClass: ["bar-txt"]
+  }, [_vm._v("值班")])])])])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ }),
@@ -2984,11 +2997,259 @@ var __vue_styles__ = []
 __vue_styles__.push(__webpack_require__(8)
 )
 
-/* script */
-__vue_exports__ = __webpack_require__(9)
+/* template */
+var __vue_template__ = __webpack_require__(9)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/views/home.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-7eb2bc79"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wrapper": {
+    "backgroundColor": "#FFFF00"
+  }
+}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wrapper"]
+  })
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(11)
+)
 
 /* template */
-var __vue_template__ = __webpack_require__(10)
+var __vue_template__ = __webpack_require__(12)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/views/book.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-1329ed83"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wrapper": {
+    "backgroundColor": "#0000FF"
+  }
+}
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wrapper"]
+  })
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(14)
+)
+
+/* template */
+var __vue_template__ = __webpack_require__(15)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/views/duty.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-299f2ef0"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wrapper": {
+    "backgroundColor": "#FF0000"
+  }
+}
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wrapper"]
+  })
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(17)
+)
+
+/* template */
+var __vue_template__ = __webpack_require__(18)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/views/meeting.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-142338de"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "wrapper": {
+    "backgroundColor": "#A52A2A"
+  }
+}
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["wrapper"]
+  })
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(20)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(21)
+
+/* template */
+var __vue_template__ = __webpack_require__(22)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3018,13 +3279,13 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 8 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = {}
 
 /***/ }),
-/* 9 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3060,7 +3321,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 10 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

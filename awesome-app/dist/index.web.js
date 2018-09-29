@@ -22499,9 +22499,16 @@ Object.defineProperty(exports, "__esModule", {
 //
 
 exports.default = {
+  data: function data() {
+    return {
+      active: false,
+      login: false
+    };
+  },
+
   methods: {
     tabTo: function tabTo(_key) {
-      if (this.pIndexKey == _key) return;
+      if (this.pIndexKey === _key) return;
       this.pIndexKey = _key;
       this.$emit('tabTo', {
         status: 'tabTo',
