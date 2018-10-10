@@ -62,11 +62,99 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(5)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(6)
+
+/* template */
+var __vue_template__ = __webpack_require__(7)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/components/bottombar.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-3b529bb0"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(8)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(24)
+
+/* template */
+var __vue_template__ = __webpack_require__(9)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/views/home.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-7eb2bc79"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75,14 +163,14 @@
 /* global Vue */
 
 /* weex initialized here, please do not move this line */
-var router = __webpack_require__(1);
-var App = __webpack_require__(3);
+var router = __webpack_require__(3);
+var App = __webpack_require__(19);
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({ el: '#root', router: router }, App));
 router.push('/');
 
 /***/ }),
-/* 1 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92,27 +180,27 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _vueRouter = __webpack_require__(2);
+var _vueRouter = __webpack_require__(4);
 
 var _vueRouter2 = _interopRequireDefault(_vueRouter);
 
-var _bottombar = __webpack_require__(7);
+var _bottombar = __webpack_require__(0);
 
 var _bottombar2 = _interopRequireDefault(_bottombar);
 
-var _home = __webpack_require__(11);
+var _home = __webpack_require__(1);
 
 var _home2 = _interopRequireDefault(_home);
 
-var _book = __webpack_require__(15);
+var _book = __webpack_require__(10);
 
 var _book2 = _interopRequireDefault(_book);
 
-var _duty = __webpack_require__(18);
+var _duty = __webpack_require__(13);
 
 var _duty2 = _interopRequireDefault(_duty);
 
-var _meeting = __webpack_require__(21);
+var _meeting = __webpack_require__(16);
 
 var _meeting2 = _interopRequireDefault(_meeting);
 
@@ -147,7 +235,7 @@ exports.default = new _vueRouter2.default({
 });
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2778,183 +2866,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(4)
-)
-__vue_styles__.push(__webpack_require__(5)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(6)
-
-/* template */
-var __vue_template__ = __webpack_require__(14)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/index.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-2964abc9"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = {}
-
-/***/ }),
 /* 5 */
-/***/ (function(module, exports) {
-
-module.exports = {
-  "app-wrapper": {
-    "backgroundColor": "#f4f4f4"
-  },
-  "r-box": {
-    "position": "absolute",
-    "top": 0,
-    "left": 0,
-    "right": 0,
-    "bottom": 0
-  }
-}
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _bottombar = __webpack_require__(7);
-
-var _bottombar2 = _interopRequireDefault(_bottombar);
-
-var _home = __webpack_require__(11);
-
-var _home2 = _interopRequireDefault(_home);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  components: {
-    'bottom-bar': _bottombar2.default,
-    'homeView': _home2.default
-  },
-  methods: {
-    onTabTo: function onTabTo(_result) {
-      var _key = _result.data.key || '';
-      this.$router && this.$router.push({ path: '/' + _key });
-    }
-  }
-};
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(8)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(9)
-
-/* template */
-var __vue_template__ = __webpack_require__(10)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/components/bottombar.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-3b529bb0"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2989,7 +2901,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 9 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3074,7 +2986,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 10 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3121,48 +3033,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(12)
-)
-
-/* template */
-var __vue_template__ = __webpack_require__(13)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/views/home.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-7eb2bc79"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 12 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3178,11 +3049,29 @@ module.exports = {
     "paddingTop": "20",
     "textAlign": "center",
     "color": "#666666"
+  },
+  "main-list": {
+    "position": "fixed",
+    "backgroundColor": "#8A2BE2",
+    "top": "108",
+    "bottom": "90",
+    "left": 0,
+    "right": 0
+  },
+  "cell-button": {
+    "paddingBottom": "180",
+    "backgroundColor": "#00FFFF"
+  },
+  "slogan": {
+    "display": "flex",
+    "flexDirection": "row",
+    "flexWrap": "nowrap",
+    "backgroundColor": "#0000FF"
   }
 }
 
 /***/ }),
-/* 13 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3197,40 +3086,100 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('text', {
     staticClass: ["bar-txt"]
-  }, [_vm._v("首页")])])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["app-wrapper"]
-  }, [_c('router-view', {
-    staticClass: ["r-box"]
-  }), _c('bottom-bar', {
-    on: {
-      "tabTo": _vm.onTabTo
+  }, [_vm._v("首页")]), _c('scroller', {
+    staticClass: ["main-list"],
+    attrs: {
+      "offsetAccuracy": "300px"
     }
-  }), _c('home-view')], 1)
+  }, [_c('refresher', {
+    on: {
+      "loadingDown": _vm.loadingDown
+    }
+  }), _c('div', {
+    staticClass: ["cell-button"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb('https://www.baidu.com')
+      }
+    }
+  }, [_c('yx-slider', {
+    attrs: {
+      "imageList": _vm.YXBanners
+    }
+  }), _c('div', {
+    staticClass: ["slogan"]
+  }, [_c('banner-goods-box', {
+    attrs: {
+      "hasMore": "flase",
+      "newGoods": "false",
+      "goods": _vm.xianyu_banner_goods
+    }
+  })], 1)], 1), _c('div', {
+    staticClass: ["cell-button"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb('https://www.baidu.com')
+      }
+    }
+  }), _c('div', {
+    staticClass: ["cell-button"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb('https://www.baidu.com')
+      }
+    }
+  }), _c('div', {
+    staticClass: ["cell-button"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb('https://www.baidu.com')
+      }
+    }
+  }), _c('div', {
+    staticClass: ["cell-button"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb('https://www.baidu.com')
+      }
+    }
+  }), _c('div', {
+    staticClass: ["cell-button"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb('https://www.baidu.com')
+      }
+    }
+  }), _c('div', {
+    staticClass: ["cell-button"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb('https://www.baidu.com')
+      }
+    }
+  }), _c('div', {
+    staticClass: ["cell-button"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb('https://www.baidu.com')
+      }
+    }
+  })], 1)])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 15 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(16)
+__vue_styles__.push(__webpack_require__(11)
 )
 
 /* template */
-var __vue_template__ = __webpack_require__(17)
+var __vue_template__ = __webpack_require__(12)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3260,7 +3209,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 16 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3274,7 +3223,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 17 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3285,18 +3234,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 18 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(19)
+__vue_styles__.push(__webpack_require__(14)
 )
 
 /* template */
-var __vue_template__ = __webpack_require__(20)
+var __vue_template__ = __webpack_require__(15)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3326,12 +3275,11 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 19 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = {
   "wrapper": {
-    "backgroundColor": "#FF0000",
     "top": 0,
     "bottom": 0,
     "left": 0,
@@ -3340,7 +3288,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 20 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3351,18 +3299,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 21 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(22)
+__vue_styles__.push(__webpack_require__(17)
 )
 
 /* template */
-var __vue_template__ = __webpack_require__(23)
+var __vue_template__ = __webpack_require__(18)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3392,7 +3340,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 22 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3406,7 +3354,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 23 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3415,6 +3363,302 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })
 },staticRenderFns: []}
 module.exports.render._withStripped = true
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(20)
+)
+__vue_styles__.push(__webpack_require__(21)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(22)
+
+/* template */
+var __vue_template__ = __webpack_require__(23)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/index.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-2964abc9"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = {}
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "app-wrapper": {
+    "backgroundColor": "#f4f4f4"
+  },
+  "r-box": {
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
+  }
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _bottombar = __webpack_require__(0);
+
+var _bottombar2 = _interopRequireDefault(_bottombar);
+
+var _home = __webpack_require__(1);
+
+var _home2 = _interopRequireDefault(_home);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  components: {
+    'bottom-bar': _bottombar2.default,
+    'homeView': _home2.default
+  },
+  methods: {
+    onTabTo: function onTabTo(_result) {
+      var _key = _result.data.key || '';
+      this.$router && this.$router.push({ path: '/' + _key });
+    }
+  }
+};
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["app-wrapper"]
+  }, [_c('router-view', {
+    staticClass: ["r-box"]
+  }), _c('bottom-bar', {
+    on: {
+      "tabTo": _vm.onTabTo
+    }
+  }), _c('home-view')], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _util = __webpack_require__(25);
+
+var _util2 = _interopRequireDefault(_util);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var navigator = weex.requireModule('navigator'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  methods: {
+    jumpWeb: function jumpWeb(_url) {
+      var url = this.$getConfig().bundleUrl;
+      navigator.push({
+        url: _util2.default.setBundleUrl(url, _url),
+        animated: 'true'
+      });
+    }
+  }
+};
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var utilFunc = {
+  setBundleUrl: function setBundleUrl(url, jsFile) {
+    var bundleUrl = url;
+    var host = '';
+    var path = '';
+    var nativeBase = '';
+    var isAndroidAssets = bundleUrl.indexOf('your_current_IP') >= 0 || bundleUrl.indexOf('file://assets/') >= 0;
+    var isIOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+    if (isAndroidAssets) {
+      nativeBase = 'file://assets/dist';
+    } else if (isIOSAssets) {
+      nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+    } else {
+      var matches = /\/\/([^/]+?)\//.exec(bundleUrl);
+      var matchFirstPath = /\/\/[^/]+\/([^/]+)\//.exec(bundleUrl);
+      if (matches && matches.length >= 2) {
+        host = matches[1];
+      }
+      if (matchFirstPath && matchFirstPath.length >= 2) {
+        path = matchFirstPath[1];
+      }
+      nativeBase = 'http://' + host + '/';
+    }
+    var h5base = './index.html?page=';
+    var base = nativeBase;
+    if (typeof navigator !== 'undefined' && (navigator.appCodeName === 'Mozilla' || navigator.product === 'Gecko')) {
+      if (path === 'web' || path === 'dist') {
+        base = h5base + '/dist/';
+      } else {
+        base = h5base + '';
+      }
+    } else {
+      base = nativeBase + (path ? path + '/' : '');
+    }
+    var newUrl = base + jsFile;
+    return newUrl;
+  }
+};
+
+exports.default = utilFunc;
 
 /***/ })
 /******/ ]);

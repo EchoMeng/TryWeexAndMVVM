@@ -5,7 +5,7 @@
 
 <style scoped>
     .wrapper {
-        background-color: red;
+        /* background-color: red; */
         top: 0;
         bottom: 0;
         left: 0;
