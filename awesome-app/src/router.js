@@ -1,41 +1,42 @@
 /* global Vue */
 import Router from 'vue-router'
-import bottombar from './components/bottombar.vue'
+import bottombar from '@/components/bottombar'
 
 /* four tabbar page */
-import HomeView from './views/home.vue'
-import BookView from './views/book.vue'
-import DutyView from './views/duty.vue'
-import MeetingView from './views/meeting.vue'
+import HomeView from '@/views/home.vue'
+import BookView from '@/views/book.vue'
+import DutyView from '@/views/duty.vue'
+import MeetingView from '@/views/meeting.vue'
 /* four tabbar page */
 
 Vue.use(Router)
 
-export default new Router({
+module.exports = new Router({
   routes: [
     {
-      path: '/bottombar',
+      path: '/',
+      name: 'bottombar',
       component: bottombar
     },
     {
-      path: '/home',
+      path: '/',
+      name: 'HomeView',
       component: HomeView
     },
     {
-      path: '/book',
+      path: '/',
+      name: 'BookView',
       component: BookView
     },
     {
-      path: '/duty',
+      path: '/',
+      name: 'DutyView',
       component: DutyView
     },
     {
-      path: '/meeting',
-      component: MeetingView
-    },
-    {
       path: '/',
-      redirect: '/home'
+      name: 'MeetingView',
+      component: MeetingView
     }
   ]
 })

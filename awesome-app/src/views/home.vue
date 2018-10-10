@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="bar-item" @click="tabTo('home')">
         <text class="bar-txt">首页</text>
-        <scroller class="main-list" offset-accuracy="300px">
+        <!-- <scroller class="main-list" offset-accuracy="300px">
             <refresher @loadingDown="loadingDown"></refresher>
             <div class="cell-button" @click="jumpWeb('https://www.baidu.com')">
             <yx-slider :imageList="YXBanners"></yx-slider>
@@ -10,21 +10,19 @@
                 <banner-goods-box hasMore=flase newGoods=false :goods="xianyu_banner_goods"></banner-goods-box>
             </div>
             </div>
-            <div class="cell-button" @click="jumpWeb('https://www.baidu.com')">
-            </div>
-                        <div class="cell-button" @click="jumpWeb('https://www.baidu.com')">
-            </div>
-                        <div class="cell-button" @click="jumpWeb('https://www.baidu.com')">
-            </div>
-                        <div class="cell-button" @click="jumpWeb('https://www.baidu.com')">
-            </div>
-                        <div class="cell-button" @click="jumpWeb('https://www.baidu.com')">
-            </div>
-                        <div class="cell-button" @click="jumpWeb('https://www.baidu.com')">
-            </div>
-                        <div class="cell-button" @click="jumpWeb('https://www.baidu.com')">
-            </div>
-        </scroller>
+        </scroller> -->
+        <list class="mainInfoList">
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+            <cell class="infoCell"></cell>
+        </list>
         </div>
     </div>
 </template>
@@ -43,23 +41,37 @@
         text-align: center;
         color: #666666;
     }
-    .main-list {
+    /* .main-list {
         position: fixed;
         background-color: blueviolet;
         top: 108px;
         bottom: 90px;
         left: 0;
         right: 0;
-    }
-    .cell-button {
+    } */
+    /* .cell-button {
         padding-bottom: 180px;
         background-color: aqua;
-    }
-    .slogan {
+    } */
+    /* .slogan {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         background-color: blue;
+    } */
+    .mainInfoList {
+        background-color: #aaaaaa;
+        top: 200px;
+        bottom: 200px;
+        left: 0px;
+        right: 0px;
+    }
+    .infoCell {
+        background-color: green;
+        top: 10px;
+        height: 150px;
+        left: 0px;
+        right: 0px;
     }
 </style>
 
@@ -77,6 +89,9 @@ export default {
           animated: 'true'
         }
       )
+    },
+    loadingDown () {
+
     }
   }
 }
