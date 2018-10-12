@@ -1,6 +1,5 @@
 /* global Vue */
 import Router from 'vue-router'
-import bottombar from '@/components/bottombar'
 
 /* four tabbar page */
 import HomeView from '@/views/HomeView.vue'
@@ -14,29 +13,24 @@ Vue.use(Router)
 module.exports = new Router({
   routes: [
     {
-      path: '/bottombar',
-      name: 'bottombar',
-      component: bottombar
-    },
-    {
       path: '/HomeView',
-      name: 'HomeView',
       component: HomeView
     },
     {
       path: '/BookView',
-      name: 'BookView',
       component: BookView
     },
     {
       path: '/DutyView',
-      name: 'DutyView',
       component: DutyView
     },
     {
       path: '/MeetingView',
-      name: 'MeetingView',
       component: MeetingView
+    },
+    {
+      path: '/',
+      redirect: '/HomeView'
     }
   ]
 })

@@ -23,16 +23,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      /* background-color: red; */
   }
 </style>
 <script>
-import HomeViewVue from './views/HomeView.vue';
-import bottombarVue from './components/bottombar.vue';
+import bottombarVue from './components/bottombar.vue'
 export default {
   components: {
-    'bottom-bar': bottombarVue,
-    'HomeView': HomeViewVue
+    'bottom-bar': bottombarVue
   },
   methods: {
     onTabTo (_result) {

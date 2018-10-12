@@ -15,27 +15,27 @@ Vue.use(Router)
 module.exports = new Router({
   routes: [
     {
-      path: '/',
+      path: '/bottombar',
       name: 'bottombar',
       component: bottombar
     },
     {
-      path: '/',
+      path: '/HomeView',
       name: 'HomeView',
       component: HomeView
     },
     {
-      path: '/',
+      path: '/BookView',
       name: 'BookView',
       component: BookView
     },
     {
-      path: '/',
+      path: '/DutyView',
       name: 'DutyView',
       component: DutyView
     },
     {
-      path: '/',
+      path: '/MeetingView',
       name: 'MeetingView',
       component: MeetingView
     }

@@ -62,7 +62,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,14 +73,14 @@ var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(4)
+__vue_styles__.push(__webpack_require__(5)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(5)
+__vue_exports__ = __webpack_require__(6)
 
 /* template */
-var __vue_template__ = __webpack_require__(6)
+var __vue_template__ = __webpack_require__(7)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -113,17 +113,45 @@ module.exports = __vue_exports__
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
 
+/* styles */
+__vue_styles__.push(__webpack_require__(8)
+)
 
-/* global Vue */
+/* script */
+__vue_exports__ = __webpack_require__(9)
 
-/* weex initialized here, please do not move this line */
-var router = __webpack_require__(2);
-var App = __webpack_require__(21);
-/* eslint-disable no-new */
-new Vue(Vue.util.extend({ el: '#root', router: router }, App));
-router.push('/');
+/* template */
+var __vue_template__ = __webpack_require__(11)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/views/HomeView.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-9ea40744"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
 
 /***/ }),
 /* 2 */
@@ -132,15 +160,27 @@ router.push('/');
 "use strict";
 
 
-var _vueRouter = __webpack_require__(3);
+/* global Vue */
+
+/* weex initialized here, please do not move this line */
+var router = __webpack_require__(3);
+var App = __webpack_require__(21);
+/* eslint-disable no-new */
+new Vue(Vue.util.extend({ el: '#root', router: router }, App));
+router.push('/');
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _vueRouter = __webpack_require__(4);
 
 var _vueRouter2 = _interopRequireDefault(_vueRouter);
 
-var _bottombar = __webpack_require__(0);
-
-var _bottombar2 = _interopRequireDefault(_bottombar);
-
-var _HomeView = __webpack_require__(7);
+var _HomeView = __webpack_require__(1);
 
 var _HomeView2 = _interopRequireDefault(_HomeView);
 
@@ -161,35 +201,30 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* four tabbar page */
 
 /* four tabbar page */
-/* global Vue */
-Vue.use(_vueRouter2.default);
+Vue.use(_vueRouter2.default); /* global Vue */
+
 
 module.exports = new _vueRouter2.default({
   routes: [{
-    path: '/bottombar',
-    name: 'bottombar',
-    component: _bottombar2.default
-  }, {
     path: '/HomeView',
-    name: 'HomeView',
     component: _HomeView2.default
   }, {
     path: '/BookView',
-    name: 'BookView',
     component: _BookView2.default
   }, {
     path: '/DutyView',
-    name: 'DutyView',
     component: _DutyView2.default
   }, {
     path: '/MeetingView',
-    name: 'MeetingView',
     component: _MeetingView2.default
+  }, {
+    path: '/',
+    redirect: '/HomeView'
   }]
 });
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2820,7 +2855,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2856,7 +2891,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2942,7 +2977,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2987,50 +3022,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("值班")])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(8)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(9)
-
-/* template */
-var __vue_template__ = __webpack_require__(11)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/mac/Documents/programming/Objective-CProgramme/TryWeexAndMVVM/awesome-app/src/views/HomeView.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-9ea40744"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
 
 /***/ }),
 /* 8 */
@@ -3633,49 +3624,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _HomeView = __webpack_require__(7);
-
-var _HomeView2 = _interopRequireDefault(_HomeView);
-
 var _bottombar = __webpack_require__(0);
 
 var _bottombar2 = _interopRequireDefault(_bottombar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 exports.default = {
   components: {
-    'bottom-bar': _bottombar2.default,
-    'HomeView': _HomeView2.default
+    'bottom-bar': _bottombar2.default
   },
   methods: {
     onTabTo: function onTabTo(_result) {
@@ -3683,7 +3640,33 @@ exports.default = {
       this.$router && this.$router.push({ path: '/' + _key });
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 25 */
