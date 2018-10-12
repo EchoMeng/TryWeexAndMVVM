@@ -1,8 +1,7 @@
 <template>
   <div class="app-wrapper">
     <router-view class="r-box"></router-view>
-    <bottom-bar @tabTo='onTabTo'></bottom-bar>
-    <home-view></home-view>
+    <bottom-bar @tabTo="onTabTo"></bottom-bar>
   </div>
 </template>
 <style>
@@ -28,12 +27,12 @@
   }
 </style>
 <script>
-import bottombar from './components/bottombar.vue'
-import homeView from './views/home.vue'
+import HomeViewVue from './views/HomeView.vue';
+import bottombarVue from './components/bottombar.vue';
 export default {
   components: {
-    'bottom-bar': bottombar,
-    'homeView': homeView
+    'bottom-bar': bottombarVue,
+    'HomeView': HomeViewVue
   },
   methods: {
     onTabTo (_result) {

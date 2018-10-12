@@ -348,3 +348,36 @@ MVVM:Model-View-ViewModel
 1. 方法和css{}前要有空格；
 2. 行末不要有多余的空格；
 3. 方法行末位不需要分号；
+
+
+#### 踩坑记录
+挖坑1分钟，踩坑200小时...
+
+1、无法build iOS包，无论是用哪种命令行方式都构建失败，并且日志提示的内容完全不明确。日志如下：
+
+```
+18 verbose node v8.12.0
+19 verbose npm  v6.4.1
+20 error code ELIFECYCLE
+21 error errno 2
+22 error first-app@1.0.0 build: `webpack --env.NODE_ENV=common`
+22 error Exit status 2
+23 error Failed at the first-app@1.0.0 build script.
+23 error This is probably not a problem with npm. There is likely additional logging output above.
+24 verbose exit [ 2, true ]
+```
+
+构建错误大概是在升级电脑系统之后产生的，因此重新添加iOS platform或者升级可解决
+
+`weex platform update ios`
+
+或者
+
+`week platform add ios`
+
+2、Xcode真机运行的时候，build成功，但是运行不起来，报错：
+
+`App installation failed. No code signature found.`
+
+看起来是证书的问题...模拟器跑起来没有问题，但是真机调试就会运行不起来，测试了各种方法无果，所以放弃了...以后找到解决办法再来填坑。
+

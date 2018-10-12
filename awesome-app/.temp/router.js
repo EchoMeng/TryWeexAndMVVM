@@ -4,10 +4,10 @@ import Router from 'vue-router'
 import bottombar from '@/components/bottombar'
 
 /* four tabbar page */
-import HomeView from '@/views/home.vue'
-import BookView from '@/views/book.vue'
-import DutyView from '@/views/duty.vue'
-import MeetingView from '@/views/meeting.vue'
+import HomeView from '@/views/HomeView.vue'
+import BookView from '@/views/BookView.vue'
+import DutyView from '@/views/DutyView.vue'
+import MeetingView from '@/views/MeetingView.vue'
 /* four tabbar page */
 
 Vue.use(Router)

@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="wrapper">
-      <div class="bar-item" @click="tabTo('home')">
+      <div class="bar-item" @click="tabTo('HomeView')">
         <text class="bar-txt">首页</text>
       </div>
-      <div class="bar-item" @click="tabTo('book')">
+      <div class="bar-item" @click="tabTo('BookView')">
         <text class="bar-txt">预约</text>
       </div>
-      <div class="bar-item" @click="tabTo('meeting')">
+      <div class="bar-item" @click="tabTo('MeetingView')">
         <text class="bar-txt">组会</text>
       </div>
-      <div class="bar-item" @click="tabTo('duty')">
+      <div class="bar-item" @click="tabTo('DutyView')">
         <text class="bar-txt">值班</text>
       </div>
     </div>
@@ -23,6 +23,7 @@
   }
   .wrapper {
     position: fixed;
+    display: flex;
     bottom: 0;
     left: 0;
     right: 0;
@@ -52,7 +53,7 @@
 export default {
   data () {
     return {
-      pIndexKey: 'home',
+      pIndexKey: 'HomeView',
       active: false,
       login: false
     }
