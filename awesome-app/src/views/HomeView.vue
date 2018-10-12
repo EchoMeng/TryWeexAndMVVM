@@ -3,37 +3,10 @@
         <div class="bar-item" @click="tabTo('home')">
         <text class="bar-txt">首页</text>
         <list class="mainInfoList">
-            <cell class="cell">
+            <cell class="cell" v-for="num in lists" key="cellCount">
                 <div class="infoCell">
-                    <text class="cellText">第一行</text>
+                    <text class="cellText">{{num}}</text>
                 </div>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第1行</text>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第2行</text>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第3行</text>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第4行</text>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第5行</text>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第6行</text>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第7行</text>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第8行</text>
-            </cell>
-            <cell class="infoCell">
-                <text class="cellText">第9行</text>
             </cell>
         </list>
         </div>
