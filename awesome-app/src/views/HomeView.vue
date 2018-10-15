@@ -1,42 +1,36 @@
 <template>
-    <div class="wrapper">
-        <div class="bar-item" @click="tabTo('home')">
-        <text class="bar-txt">首页</text>
-        <list class="mainInfoList">
-            <cell class="cell" v-for="num in lists" key="cellCount">
-                <div class="infoCell">
-                    <text class="cellText">{{num}}</text>
-                </div>
-            </cell>
-        </list>
-        </div>
-    </div>
+    <list class="mainInfoList" @loadmore="fetch" loadmoreoffset="1">
+        <header class="listHeader">首页</header>
+        <cell class="cell" v-for="num in lists"
+        @click="clickoncell(num)">
+            <div class="infoCell">
+                <text class="cellText"
+                @appear="onAppear(num)"
+                @disappear="onDisAppear(num)"
+                >{{num}}</text>
+            </div>
+        </cell>
+    </list>
 </template>
 
 <style scoped>
-    .wrapper {
-        background-color: yellow;
-        margin-top: 0;
-        margin-bottom: 90px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .bar-txt {
+    .listHeader {
         font-size: 50px;
         padding-top: 20px;
         text-align: center;
         color: #666666;
+        background-color: yellow;
     }
     .mainInfoList {
         background-color: red;
-        margin-top: 200px;
-        margin-bottom: 200px;
+        margin-top: 0px;
+        margin-bottom: 90px;
         margin-left: 0px;
         margin-right: 0px;
     }
     .infoCell {
         width: 600px;
-        height: 300px;
+        height: 900px;
         margin-left: 75px;
         margin-top: 35px;
         margin-bottom: 35px;
@@ -58,11 +52,13 @@
 <script>
 import util from '../utils/util.js'
 var navigator = weex.requireModule('navigator')
+const modal = weex.requireModule('modal')
+const LOAD_MORE_COUNT = 10
 
 export default {
   data () {
     return {
-      lists: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+      lists: [1, 2, 3, 4, 5, 6, 7, 8]
     }
   },
   methods: {
@@ -75,8 +71,26 @@ export default {
         }
       )
     },
-    loadingDown () {
+    fetch (event) {
+      modal.toast({ message: 'loadmore', duration: 1 })
 
+      setTimeout(() => {
+        const length = this.lists.length
+        for (let i = length; i < length + LOAD_MORE_COUNT; ++i) {
+          this.lists.push(i + 1)
+        }
+      }, 800)
+    },
+    onAppear (num) {
+        modal.toast({ message: num + ' appear', duration: 1 })
+    },
+    onDisAppear (num) {
+        modal.toast({ message: num + ' disappear', duration: 1 })
+    },
+    clickoncell (num) {
+        modal.toast({ message: num + ' click', duration: 1 })
+
+        jumpWeb ('www.baidu.com')
     }
   }
 }

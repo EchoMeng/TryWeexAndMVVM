@@ -76,7 +76,7 @@
 
 /* weex initialized here, please do not move this line */
 var router = __webpack_require__(1);
-var App = __webpack_require__(17);
+var App = __webpack_require__(18);
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({ el: '#root', router: router }, App));
 router.push('/');
@@ -104,7 +104,7 @@ var _DutyView = __webpack_require__(11);
 
 var _DutyView2 = _interopRequireDefault(_DutyView);
 
-var _MeetingView = __webpack_require__(14);
+var _MeetingView = __webpack_require__(15);
 
 var _MeetingView2 = _interopRequireDefault(_MeetingView);
 
@@ -2815,29 +2815,23 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "wrapper": {
-    "backgroundColor": "#FFFF00",
-    "marginTop": 0,
-    "marginBottom": "90",
-    "marginLeft": 0,
-    "marginRight": 0
-  },
-  "bar-txt": {
+  "listHeader": {
     "fontSize": "50",
     "paddingTop": "20",
     "textAlign": "center",
-    "color": "#666666"
+    "color": "#666666",
+    "backgroundColor": "#FFFF00"
   },
   "mainInfoList": {
     "backgroundColor": "#FF0000",
-    "marginTop": "200",
-    "marginBottom": "200",
+    "marginTop": "0",
+    "marginBottom": "90",
     "marginLeft": "0",
     "marginRight": "0"
   },
   "infoCell": {
     "width": "600",
-    "height": "300",
+    "height": "900",
     "marginLeft": "75",
     "marginTop": "35",
     "marginBottom": "35",
@@ -2924,17 +2918,14 @@ var navigator = weex.requireModule('navigator'); //
 //
 //
 //
-//
-//
-//
-//
-//
-//
+
+var modal = weex.requireModule('modal');
+var LOAD_MORE_COUNT = 10;
 
 exports.default = {
   data: function data() {
     return {
-      lists: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+      lists: [1, 2, 3, 4, 5, 6, 7, 8]
     };
   },
 
@@ -2946,7 +2937,29 @@ exports.default = {
         animated: 'true'
       });
     },
-    loadingDown: function loadingDown() {}
+    fetch: function fetch(event) {
+      var _this = this;
+
+      modal.toast({ message: 'loadmore', duration: 1 });
+
+      setTimeout(function () {
+        var length = _this.lists.length;
+        for (var i = length; i < length + LOAD_MORE_COUNT; ++i) {
+          _this.lists.push(i + 1);
+        }
+      }, 800);
+    },
+    onAppear: function onAppear(num) {
+      modal.toast({ message: num + ' appear', duration: 1 });
+    },
+    onDisAppear: function onDisAppear(num) {
+      modal.toast({ message: num + ' disappear', duration: 1 });
+    },
+    clickoncell: function clickoncell(num) {
+      modal.toast({ message: num + ' click', duration: 1 });
+
+      jumpWeb('www.baidu.com');
+    }
   }
 };
 
@@ -3006,33 +3019,46 @@ exports.default = utilFunc;
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wrapper"]
-  }, [_c('div', {
-    staticClass: ["bar-item"],
+  return _c('list', {
+    staticClass: ["mainInfoList"],
+    attrs: {
+      "loadmoreoffset": "1"
+    },
     on: {
-      "click": function($event) {
-        _vm.tabTo('home')
-      }
+      "loadmore": _vm.fetch
     }
-  }, [_c('text', {
-    staticClass: ["bar-txt"]
-  }, [_vm._v("首页")]), _c('list', {
-    staticClass: ["mainInfoList"]
-  }, _vm._l((_vm.lists), function(num) {
+  }, [_c('header', {
+    staticClass: ["listHeader"],
+    appendAsTree: true,
+    attrs: {
+      "append": "tree"
+    }
+  }, [_vm._v("首页")]), _vm._l((_vm.lists), function(num) {
     return _c('cell', {
-      key: "cellCount",
       staticClass: ["cell"],
       appendAsTree: true,
       attrs: {
         "append": "tree"
+      },
+      on: {
+        "click": function($event) {
+          _vm.clickoncell(num)
+        }
       }
     }, [_c('div', {
       staticClass: ["infoCell"]
     }, [_c('text', {
-      staticClass: ["cellText"]
+      staticClass: ["cellText"],
+      on: {
+        "appear": function($event) {
+          _vm.onAppear(num)
+        },
+        "disappear": function($event) {
+          _vm.onDisAppear(num)
+        }
+      }
     }, [_vm._v(_vm._s(num))])])])
-  }))])])
+  })], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -3113,8 +3139,11 @@ var __vue_styles__ = []
 __vue_styles__.push(__webpack_require__(12)
 )
 
+/* script */
+__vue_exports__ = __webpack_require__(13)
+
 /* template */
-var __vue_template__ = __webpack_require__(13)
+var __vue_template__ = __webpack_require__(14)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3148,38 +3177,115 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "wrapper": {
-    "top": 0,
-    "bottom": 0,
-    "left": 0,
-    "right": 0
+  "panel": {
+    "width": "600",
+    "height": "250",
+    "marginLeft": "75",
+    "marginTop": "35",
+    "marginBottom": "35",
+    "flexDirection": "column",
+    "justifyContent": "center",
+    "borderWidth": "2",
+    "borderStyle": "solid",
+    "borderColor": "rgb(162,217,192)",
+    "backgroundColor": "rgba(162,217,192,0.2)"
+  },
+  "text": {
+    "fontSize": "50",
+    "textAlign": "center",
+    "color": "#41B883"
   }
 }
 
 /***/ }),
 /* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var modal = weex.requireModule('modal');
+var LOADMORE_COUNT = 4;
+
+exports.default = {
+  data: function data() {
+    return {
+      lists: [1, 2, 3, 4, 5]
+    };
+  },
+
+  methods: {
+    fetch: function fetch(event) {
+      var _this = this;
+
+      modal.toast({ message: 'loadmore', duration: 1 });
+
+      setTimeout(function () {
+        var length = _this.lists.length;
+        for (var i = length; i < length + LOADMORE_COUNT; ++i) {
+          _this.lists.push(i + 1);
+        }
+      }, 800);
+    }
+  }
+};
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wrapper"]
-  })
+  return _c('list', {
+    staticClass: ["list"],
+    attrs: {
+      "loadmoreoffset": "10"
+    },
+    on: {
+      "loadmore": _vm.fetch
+    }
+  }, _vm._l((_vm.lists), function(num) {
+    return _c('cell', {
+      staticClass: ["cell"],
+      appendAsTree: true,
+      attrs: {
+        "append": "tree"
+      }
+    }, [_c('div', {
+      staticClass: ["panel"]
+    }, [_c('text', {
+      staticClass: ["text"]
+    }, [_vm._v(_vm._s(num))])])])
+  }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(15)
+__vue_styles__.push(__webpack_require__(16)
 )
 
 /* template */
-var __vue_template__ = __webpack_require__(16)
+var __vue_template__ = __webpack_require__(17)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3209,7 +3315,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3223,7 +3329,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3234,23 +3340,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(18)
-)
 __vue_styles__.push(__webpack_require__(19)
+)
+__vue_styles__.push(__webpack_require__(20)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(20)
+__vue_exports__ = __webpack_require__(21)
 
 /* template */
-var __vue_template__ = __webpack_require__(25)
+var __vue_template__ = __webpack_require__(26)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3280,13 +3386,13 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = {}
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3303,7 +3409,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3313,7 +3419,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _bottombar = __webpack_require__(21);
+var _bottombar = __webpack_require__(22);
 
 var _bottombar2 = _interopRequireDefault(_bottombar);
 
@@ -3358,21 +3464,21 @@ exports.default = {
 //
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(22)
+__vue_styles__.push(__webpack_require__(23)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(23)
+__vue_exports__ = __webpack_require__(24)
 
 /* template */
-var __vue_template__ = __webpack_require__(24)
+var __vue_template__ = __webpack_require__(25)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3402,7 +3508,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3438,7 +3544,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3524,7 +3630,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3571,7 +3677,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
