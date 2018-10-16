@@ -24,7 +24,7 @@
     .mainInfoList {
         background-color: red;
         margin-top: 0px;
-        margin-bottom: 90px;
+        margin-bottom: 0px;
         margin-left: 0px;
         margin-right: 0px;
     }
@@ -66,8 +66,10 @@ export default {
       const url = this.$getConfig().bundleUrl
       navigator.push(
         {
-          url: util.setBundleUrl(url, _url),
+          url: _url,
           animated: 'true'
+        }, event => {
+            modal.toast({message: 'jump success!', duration: 0.5})
         }
       )
     },
@@ -89,8 +91,7 @@ export default {
     },
     clickoncell (num) {
         modal.toast({ message: num + ' click', duration: 1 })
-
-        jumpWeb ('www.baidu.com')
+        this.jumpWeb("http://localhost:8081/dist/CellPage.js")
     }
   }
 }

@@ -37,6 +37,7 @@
   }
   .bar-item {
     flex: 1;
+    background-color: rebeccapurple;
   }
   .bar-active {
     color: #b4282d;

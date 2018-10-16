@@ -8,6 +8,10 @@ import DutyView from '@/views/DutyView.vue'
 import MeetingView from '@/views/MeetingView.vue'
 /* four tabbar page */
 
+/* cell push page */
+import CellPage from '@/views/HomeView/CellPage.vue'
+/* cell push page */
+
 Vue.use(Router)
 
 module.exports = new Router({
@@ -31,6 +35,10 @@ module.exports = new Router({
     {
       path: '/',
       redirect: '/HomeView'
+    },
+    {
+      path: '/CellPage',
+      component: CellPage
     }
   ]
 })

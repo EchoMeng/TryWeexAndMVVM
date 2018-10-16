@@ -2,6 +2,7 @@
   <div class="app-wrapper">
     <router-view class="r-box"></router-view>
     <bottom-bar @tabTo="onTabTo"></bottom-bar>
+    <div dataRole="navbar" :style="{ backgroundColor: 'black'}"></div>
   </div>
 </template>
 <style>
@@ -18,18 +19,18 @@
     background-color: #f4f4f4;
   }
   .r-box{
-      position: absolute;
-      top:0;
+      position: fixed;
+      top: 0px;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: 90px;
   }
 </style>
 <script>
 import bottombarVue from './components/bottombar.vue'
 export default {
   components: {
-    'bottom-bar': bottombarVue
+    'bottom-bar': bottombarVue,
   },
   methods: {
     onTabTo (_result) {

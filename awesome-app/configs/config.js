@@ -39,7 +39,8 @@ const config = {
      */
     // https://webpack.js.org/configuration/devtool/#development
     devtool: 'eval-source-map',
-    env: JSON.stringify('development'),
+    // env: JSON.stringify('development'),
+    env: JSON.stringify('common'),
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting

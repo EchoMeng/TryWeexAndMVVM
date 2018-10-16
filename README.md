@@ -339,8 +339,8 @@ MVVM:Model-View-ViewModel
 [网易严选App感受Weex开发（已完结）](https://segmentfault.com/a/1190000011027225)
 
 #### 几个关键的命令行
-1. `npm run dev` 启动项目（需要在项目文件夹中）
-2. `npm run serve` 网页预览
+1. `npm run dev` 进行打包（需要在项目文件夹中）
+2. `npm run serve` 运行服务
 2. `weexpack run ios` 打包iOS项目并模拟器运行
 3.  `weexpack build ios` 构建ipa包
 
@@ -349,6 +349,20 @@ MVVM:Model-View-ViewModel
 2. 行末不要有多余的空格；
 3. 方法行末位不需要分号；
 
+#### weex常规组件渲染流程
+[长列表的复用方案](https://github.com/Hanks10100/weex-native-directive/blob/master/Design.md)
+
+在 Weex 的架构中，可以简略的分成三层：【DSL】->【JS Framework】->【原生渲染引擎】。其中 DSL (Domain Specific Language) 指的是 Weex 里支持的上层前端框架，即 Vue 和 Rax。原生渲染引擎就是在 Weex 支持的平台上（Android 或 iOS）绘制原生 UI 的引擎。JS Framework 是桥接并适配 DSL 和原生渲染引擎的一层。
+
+常规组件的渲染过程可以分为如下这几个步骤：
+
+1. 创建前端组件
+2. 构建 Virtual DOM
+3. 生成“真实” DOM
+4. 发送渲染指令
+5. 绘制原生 UI
+
+![常规组件渲染过程](./img/常规组件渲染过程.png)
 
 #### 踩坑记录
 挖坑1分钟，踩坑200小时...
@@ -380,4 +394,45 @@ MVVM:Model-View-ViewModel
 `App installation failed. No code signature found.`
 
 看起来是证书的问题...模拟器跑起来没有问题，但是真机调试就会运行不起来，测试了各种方法无果，所以放弃了...以后找到解决办法再来填坑。
+
+3、发现网页版的调试和手机上的调试显示出来的东西是不一样的，不知道是不是weex的bug，所以还是要实际上用真机来做一下测试。
+
+debug模式下发现输出log
+
+`No component config for name:router-view, use default config`
+
+4、作用域问题
+
+``` js
+ //在function里this的作用域是当前的函数
+ module.openWindow(obj, function (e) {});
+ //在箭头函数里，this的作用域是全局的
+ module.openWindow(obj, (e) => {});
+```
+
+在回调的内部函数内调用外部函数或者变量，最好把回调写为箭头函数，在箭头函数内的作用域是全局的，可以用this直接调用外部的函数或者属性。
+
+使用计算属性时注意
+computed 计算属性下调用data里的值或者methods里的方法都需要用this，这里也是一个作用域问题。
+
+5、 在学习的过程中发现weex和mvvm设计模式并没有什么关系...
+
+6、 list里面的cell宽度和list宽度一致，并且其高度是自适应的，制定margin也不起作用。
+
+7、 使用内置模块navigator实现导航/使用vue-router实现导航
+
+发现构建之后不能生成跳转页面的js文件，可能是在bottombar的跳转中已使用router导致文件编译方式不一样了？ 最终选择使用vue-router的方式实现，但是又遇到navigation bar不显示的情况。
+
+[使用navigator内置模块实现导航](https://segmentfault.com/a/1190000012629351)
+
+[Weex NavigationBar 设置](https://www.jianshu.com/p/3a15706bd430)
+
+8、打包相关需要理解的地方：
+[webpack中文文档](http://webpack.css88.com/)
+
+9、 这个踩坑教程还挺详细的，也贴在这里...
+
+[WEEX从入门到放肆](https://juejin.im/entry/599d2a06518825243d1efbad)
+
+10、 
 
