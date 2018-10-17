@@ -424,7 +424,7 @@ debug模式下发现输出log
 使用计算属性时注意
 computed 计算属性下调用data里的值或者methods里的方法都需要用this，这里也是一个作用域问题。
 
-5、 在学习的过程中发现weex和mvvm设计模式并没有什么关系...
+5、 在学习的过程中发现weex和mvvm设计模式并没有什么关系...所以这个repo大概是用来搞笑的QAQ
 
 6、 list里面的cell宽度和list宽度一致，并且其高度是自适应的，制定margin也不起作用。
 
@@ -459,8 +459,8 @@ const weexEntry = {
 
 ```
 Command failed: xcodebuild -workspace WeexDemo.xcworkspace -scheme WeexDemo -configuration PROD -sdk iphoneos -derivedDataPath build clean build
-2018-10-16 20:45:50.314 xcodebuild[2146:684549] [MT] PluginLoading: Required plug-in compatibility UUID 8B9F56A7-4D8B-41AA-A65D-D4906CDF1539 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/FuzzyAutocomplete.xcplugin' not present in DVTPlugInCompatibilityUUIDs
-2018-10-16 20:45:50.314 xcodebuild[2146:684549] [MT] PluginLoading: Required plug-in compatibility UUID 8B9F56A7-4D8B-41AA-A65D-D4906CDF1539 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2018-10-16 20:45:50.314 xcodebuild[2146:684549] [MT] PluginLoading: Required plug-in compatibility UUID ************* for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/FuzzyAutocomplete.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2018-10-16 20:45:50.314 xcodebuild[2146:684549] [MT] PluginLoading: Required plug-in compatibility UUID ************* for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin' not present in DVTPlugInCompatibilityUUIDs
 ** BUILD FAILED **
 ```
 
