@@ -30,7 +30,7 @@
 import bottombarVue from './components/bottombar.vue'
 export default {
   components: {
-    'bottom-bar': bottombarVue,
+    'bottom-bar': bottombarVue
   },
   methods: {
     onTabTo (_result) {

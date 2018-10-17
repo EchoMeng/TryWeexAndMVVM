@@ -24,7 +24,7 @@
   .wrapper {
     position: fixed;
     display: flex;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
     right: 0;
     height: 90px;

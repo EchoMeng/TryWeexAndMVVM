@@ -50,7 +50,7 @@
 </style>
 
 <script>
-import util from '../utils/util.js'
+// import util from '../utils/util.js'
 var navigator = weex.requireModule('navigator')
 const modal = weex.requireModule('modal')
 const LOAD_MORE_COUNT = 10
@@ -62,17 +62,6 @@ export default {
     }
   },
   methods: {
-    jumpWeb (_url) {
-      const url = this.$getConfig().bundleUrl
-      navigator.push(
-        {
-          url: _url,
-          animated: 'true'
-        }, event => {
-            modal.toast({message: 'jump success!', duration: 0.5})
-        }
-      )
-    },
     fetch (event) {
       modal.toast({ message: 'loadmore', duration: 1 })
 
@@ -84,14 +73,20 @@ export default {
       }, 800)
     },
     onAppear (num) {
-        modal.toast({ message: num + ' appear', duration: 1 })
+      modal.toast({ message: num + ' appear', duration: 1 })
     },
     onDisAppear (num) {
-        modal.toast({ message: num + ' disappear', duration: 1 })
+      modal.toast({ message: num + ' disappear', duration: 1 })
     },
     clickoncell (num) {
-        modal.toast({ message: num + ' click', duration: 1 })
-        this.jumpWeb("http://localhost:8081/dist/CellPage.js")
+      modal.toast({ message: num + ' click', duration: 1 })
+      navigator.push(
+        {
+          url: 'http://192.168.1.102:8081/dist/CellPage.js',
+          animated: 'true'
+        }, event => {
+          modal.toast({message: 'jump success!', duration: 0.5})
+        })
     }
   }
 }

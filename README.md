@@ -267,7 +267,7 @@ MVVM:Model-View-ViewModel
 
 #### What is Node.js?
 [Node.js v10.8.0 文档](http://nodejs.cn/api/)<br>
->Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 
+> Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 
 <br>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 
 <br>Node.js 的包管理器 npm，是全球最大的开源库生态系统。
 
@@ -338,6 +338,10 @@ MVVM:Model-View-ViewModel
 
 [网易严选App感受Weex开发（已完结）](https://segmentfault.com/a/1190000011027225)
 
+[Weex Demo](https://github.com/CarGuo/GSYGithubAppWeex)
+
+[Weex从入门到超神](https://www.gaoshilei.com/2017/05/26/weex-1/)
+
 #### 几个关键的命令行
 1. `npm run dev` 进行打包（需要在项目文件夹中）
 2. `npm run serve` 运行服务
@@ -363,6 +367,11 @@ MVVM:Model-View-ViewModel
 5. 绘制原生 UI
 
 ![常规组件渲染过程](./img/常规组件渲染过程.png)
+
+#### Weex原理
+[Weex 中别具匠心的 JS Framework](https://github.com/halfrost/Halfrost-Field/blob/master/contents/iOS/Weex/Weex_ingenuity_JS_framework.md)
+
+这一篇解读比较详细，暂时还理解不了，存在以后看...
 
 #### 踩坑记录
 挖坑1分钟，踩坑200小时...
@@ -427,6 +436,16 @@ computed 计算属性下调用data里的值或者methods里的方法都需要用
 
 [Weex NavigationBar 设置](https://www.jianshu.com/p/3a15706bd430)
 
+看了很多文档，发现自己执行打包命令之后，在dist文件夹中并没有生成.vue文件所对应的.js文件，应该是我的config文件配置的不对。后来修改了config文件中的`WeexEntry`，再次执行打包，生成了对应的.js文件，代码如下：
+
+```js
+const weexEntry = {
+  'index': helper.root('entry.js'),
+  'CellPage': helper.root('views/HomeView/CellPage.vue')
+}
+```
+问题在于：每一次想要生成对应的.js文件都要手动添加对应的`WeexEntry`吗？应该对应的配置还是不太对，继续研究中...
+
 8、打包相关需要理解的地方：
 [webpack中文文档](http://webpack.css88.com/)
 
@@ -434,5 +453,16 @@ computed 计算属性下调用data里的值或者methods里的方法都需要用
 
 [WEEX从入门到放肆](https://juejin.im/entry/599d2a06518825243d1efbad)
 
-10、 
+[iOS 开发者的 Weex 伪最佳实践指北](https://www.jianshu.com/p/43adc80ab60b)
+
+10、 使用`weexpack build ios`命令打包iOS总是会报错，报错信息也很诡异
+
+```
+Command failed: xcodebuild -workspace WeexDemo.xcworkspace -scheme WeexDemo -configuration PROD -sdk iphoneos -derivedDataPath build clean build
+2018-10-16 20:45:50.314 xcodebuild[2146:684549] [MT] PluginLoading: Required plug-in compatibility UUID 8B9F56A7-4D8B-41AA-A65D-D4906CDF1539 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/FuzzyAutocomplete.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+2018-10-16 20:45:50.314 xcodebuild[2146:684549] [MT] PluginLoading: Required plug-in compatibility UUID 8B9F56A7-4D8B-41AA-A65D-D4906CDF1539 for plug-in at path '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin' not present in DVTPlugInCompatibilityUUIDs
+** BUILD FAILED **
+```
+
+看不懂这个报错信息的问题在哪，感觉像是缺少插件之类的，折腾了两天最后该用`npm run ios`的方式跑iOS了并且可以跑起来...
 

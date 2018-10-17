@@ -19760,19 +19760,19 @@ var _HomeView = __webpack_require__(12);
 
 var _HomeView2 = _interopRequireDefault(_HomeView);
 
-var _BookView = __webpack_require__(19);
+var _BookView = __webpack_require__(18);
 
 var _BookView2 = _interopRequireDefault(_BookView);
 
-var _DutyView = __webpack_require__(23);
+var _DutyView = __webpack_require__(22);
 
 var _DutyView2 = _interopRequireDefault(_DutyView);
 
-var _MeetingView = __webpack_require__(28);
+var _MeetingView = __webpack_require__(27);
 
 var _MeetingView2 = _interopRequireDefault(_MeetingView);
 
-var _CellPage = __webpack_require__(32);
+var _CellPage = __webpack_require__(31);
 
 var _CellPage2 = _interopRequireDefault(_CellPage);
 
@@ -22457,7 +22457,7 @@ var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(16),
   /* template */
-  __webpack_require__(18),
+  __webpack_require__(17),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -22571,14 +22571,7 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _util = __webpack_require__(17);
-
-var _util2 = _interopRequireDefault(_util);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var navigator = weex.requireModule('navigator'); //
+//
 //
 //
 //
@@ -22630,6 +22623,8 @@ var navigator = weex.requireModule('navigator'); //
 //
 //
 
+// import util from '../utils/util.js'
+var navigator = weex.requireModule('navigator');
 var modal = weex.requireModule('modal');
 var LOAD_MORE_COUNT = 10;
 
@@ -22641,15 +22636,6 @@ exports.default = {
   },
 
   methods: {
-    jumpWeb: function jumpWeb(_url) {
-      var url = this.$getConfig().bundleUrl;
-      navigator.push({
-        url: _url,
-        animated: 'true'
-      }, function (event) {
-        modal.toast({ message: 'jump success!', duration: 0.5 });
-      });
-    },
     fetch: function fetch(event) {
       var _this = this;
 
@@ -22670,64 +22656,18 @@ exports.default = {
     },
     clickoncell: function clickoncell(num) {
       modal.toast({ message: num + ' click', duration: 1 });
-      this.jumpWeb("http://localhost:8081/CellPage.vue");
+      navigator.push({
+        url: 'http://192.168.1.102:8081/dist/CellPage.js',
+        animated: 'true'
+      }, function (event) {
+        modal.toast({ message: 'jump success!', duration: 0.5 });
+      });
     }
   }
 };
 
 /***/ }),
 /* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var utilFunc = {
-  setBundleUrl: function setBundleUrl(url, jsFile) {
-    var bundleUrl = url;
-    var host = '';
-    var path = '';
-    var nativeBase = '';
-    var isAndroidAssets = bundleUrl.indexOf('your_current_IP') >= 0 || bundleUrl.indexOf('file://assets/') >= 0;
-    var isIOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
-    if (isAndroidAssets) {
-      nativeBase = 'file://assets/dist';
-    } else if (isIOSAssets) {
-      nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
-    } else {
-      var matches = /\/\/([^/]+?)\//.exec(bundleUrl);
-      var matchFirstPath = /\/\/[^/]+\/([^/]+)\//.exec(bundleUrl);
-      if (matches && matches.length >= 2) {
-        host = matches[1];
-      }
-      if (matchFirstPath && matchFirstPath.length >= 2) {
-        path = matchFirstPath[1];
-      }
-      nativeBase = 'http://' + host + '/';
-    }
-    var h5base = './index.html?page=';
-    var base = nativeBase;
-    if (typeof navigator !== 'undefined' && (navigator.appCodeName === 'Mozilla' || navigator.product === 'Gecko')) {
-      if (path === 'web' || path === 'dist') {
-        base = h5base + '/dist/';
-      } else {
-        base = h5base + '';
-      }
-    } else {
-      base = nativeBase + (path ? path + '/' : '');
-    }
-    var newUrl = base + jsFile;
-    return newUrl;
-  }
-};
-
-exports.default = utilFunc;
-
-/***/ }),
-/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22792,19 +22732,19 @@ if (false) {
 }
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(20)
+  __webpack_require__(19)
 }
 var Component = __webpack_require__(2)(
   /* script */
   null,
   /* template */
-  __webpack_require__(22),
+  __webpack_require__(21),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -22836,13 +22776,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(21);
+var content = __webpack_require__(20);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -22862,7 +22802,7 @@ if(false) {
 }
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -22876,7 +22816,7 @@ exports.push([module.i, "\n.wrapper[data-v-63f95280] {\n    background-color: bl
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22896,19 +22836,19 @@ if (false) {
 }
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(24)
+  __webpack_require__(23)
 }
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(26),
+  __webpack_require__(25),
   /* template */
-  __webpack_require__(27),
+  __webpack_require__(26),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -22940,13 +22880,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(25);
+var content = __webpack_require__(24);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -22966,7 +22906,7 @@ if(false) {
 }
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -22980,7 +22920,7 @@ exports.push([module.i, "\n.panel[data-v-3bf019ad] {\n  width: 8rem;\n  height: 
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23027,7 +22967,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23068,19 +23008,19 @@ if (false) {
 }
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(29)
+  __webpack_require__(28)
 }
 var Component = __webpack_require__(2)(
   /* script */
   null,
   /* template */
-  __webpack_require__(31),
+  __webpack_require__(30),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -23112,13 +23052,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(30);
+var content = __webpack_require__(29);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -23138,7 +23078,7 @@ if(false) {
 }
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -23152,7 +23092,7 @@ exports.push([module.i, "\n.wrapper[data-v-c1258444] {\n    background-color: br
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -23172,17 +23112,17 @@ if (false) {
 }
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(33)
+  __webpack_require__(32)
 }
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(35),
+  __webpack_require__(34),
   /* template */
   __webpack_require__(40),
   /* styles */
@@ -23216,13 +23156,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(34);
+var content = __webpack_require__(33);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -23242,7 +23182,7 @@ if(false) {
 }
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -23256,19 +23196,15 @@ exports.push([module.i, "\n.wrapper[data-v-71ff3ecc] {\n    background-color: pi
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
-//
-//
-//
-//
 //
 //
 //
@@ -23283,23 +23219,23 @@ Object.defineProperty(exports, "__esModule", {
 //
 
 exports.default = {
-    components: {
-        navbar: __webpack_require__(36)
-    }
+  components: {
+    navbar: __webpack_require__(35)
+  }
 };
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(37)
+  __webpack_require__(36)
 }
 var Component = __webpack_require__(2)(
   /* script */
-  null,
+  __webpack_require__(38),
   /* template */
   __webpack_require__(39),
   /* styles */
@@ -23333,13 +23269,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(38);
+var content = __webpack_require__(37);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -23359,7 +23295,7 @@ if(false) {
 }
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -23367,10 +23303,64 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-0820e0c8] {\n    flex-direction: row;\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    height: 100;\n}\n", ""]);
+exports.push([module.i, "\n.title[data-v-0820e0c8] {\n    width: 10rem;\n    align-items: center;\n    background-color:red;\n    box-shadow: 0 0 0.13333rem rgba(0, 0, 0, 0.80);\n    border-bottom: 0.5px yellow;\n}\n", ""]);
 
 // exports
 
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  data: function data() {
+    return {
+      nvheight: 100
+    };
+  },
+  props: {
+    onLeftButtonClick: {
+      type: Function,
+      default: function _default() {}
+    },
+    onRightButtonClick: {
+      type: Function,
+      default: function _default() {}
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    rightIcon: {
+      type: String,
+      default: ''
+    },
+    leftIcon: {
+      type: String,
+      default: '\uE78A'
+    }
+  },
+  created: function created() {}
+};
 
 /***/ }),
 /* 39 */
@@ -23378,22 +23368,69 @@ exports.push([module.i, "\n.container[data-v-0820e0c8] {\n    flex-direction: ro
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container weex-ct weex-div",
+    staticClass: "title weex-ct weex-div",
     style: ({
-      height: _vm._px2rem(_vm.height, 75),
-      backgroundColor: _vm.backgroundColor
+      height: _vm._px2rem(_vm.nvheight, 75)
     }),
     attrs: {
-      "dataRole": _vm.dataRole,
       "weex-type": "div"
     }
-  }, [(!_vm.rightItemSrc) ? _c('p', {
-    staticClass: " weex-el weex-text",
+  }, [_c('wxc-minibar', {
     attrs: {
-      "naviItemPosition": "right",
-      "weex-type": "text"
+      "background-color": "rgba(97, 97, 97, 0.0)"
     }
-  }) : _vm._e()])
+  }, [_c('p', {
+    staticClass: " weex-el weex-text",
+    style: ({
+      fontFamily: 'wxcIconFont',
+      fontSize: _vm._px2rem('30px', 75),
+      color: '#FFFFFF'
+    }),
+    attrs: {
+      "slot": "left",
+      "weex-type": "text",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        return _vm.onLeftButtonClick($event)
+      }
+    },
+    slot: "left"
+  }, [_vm._v(_vm._s(_vm.leftIcon))]), _vm._v(" "), _c('p', {
+    staticClass: " weex-el weex-text",
+    style: ({
+      fontSize: _vm._px2rem('36px', 75),
+      color: '#FFFFFF'
+    }),
+    attrs: {
+      "slot": "middle",
+      "weex-type": "text"
+    },
+    slot: "middle"
+  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('p', {
+    staticClass: " weex-el weex-text",
+    style: ({
+      fontFamily: 'wxcIconFont',
+      fontSize: _vm._px2rem('30px', 75),
+      color: '#FFFFFF'
+    }),
+    attrs: {
+      "slot": "right",
+      "weex-type": "text",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        return _vm.onRightButtonClick($event)
+      }
+    },
+    slot: "right"
+  }, [_vm._v(_vm._s('    ' + _vm.rightIcon))])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -23413,13 +23450,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "div"
     }
-  }, [_c('navbar', {
-    attrs: {
-      "dataRole": _vm.dataRole,
-      "background-color": _vm.black,
-      "height": _vm.height
-    }
-  })], 1)
+  }, [_c('navbar')], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -23689,7 +23720,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.iconfont[data-v-4bf36300] {\n  font-family: iconfont;\n}\n.wrapper[data-v-4bf36300] {\n  position: fixed;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 1.2rem;\n  flex-wrap: nowrap;\n  flex-direction: row;\n  justify-content: space-around;\n  border-top-width: 1px;\n  border-top-color: #d9d9d9;\n  background-color: #fafafa;\n}\n.bar-item[data-v-4bf36300] {\n  flex: 1;\n  background-color: rebeccapurple;\n}\n.bar-active[data-v-4bf36300] {\n  color: #b4282d;\n}\n.bar-txt[data-v-4bf36300] {\n  font-size: 0.53333rem;\n  padding-top: 0.26667rem;\n  text-align: center;\n  color: #666666;\n}\n", ""]);
+exports.push([module.i, "\n.iconfont[data-v-4bf36300] {\n  font-family: iconfont;\n}\n.wrapper[data-v-4bf36300] {\n  position: fixed;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  bottom: 0.26667rem;\n  left: 0;\n  right: 0;\n  height: 1.2rem;\n  flex-wrap: nowrap;\n  flex-direction: row;\n  justify-content: space-around;\n  border-top-width: 1px;\n  border-top-color: #d9d9d9;\n  background-color: #fafafa;\n}\n.bar-item[data-v-4bf36300] {\n  flex: 1;\n  background-color: rebeccapurple;\n}\n.bar-active[data-v-4bf36300] {\n  color: #b4282d;\n}\n.bar-txt[data-v-4bf36300] {\n  font-size: 0.53333rem;\n  padding-top: 0.26667rem;\n  text-align: center;\n  color: #666666;\n}\n", ""]);
 
 // exports
 

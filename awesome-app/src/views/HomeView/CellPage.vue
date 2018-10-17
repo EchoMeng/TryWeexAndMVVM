@@ -1,10 +1,6 @@
 <template>
     <div class="wrapper">
-        <navbar 
-        :dataRole= "dataRole"
-        :background-color= "black"
-        :height= "height"
-        ></navbar>
+        <navbar></navbar>
     </div>
 </template>
 
@@ -16,9 +12,8 @@
 
 <script>
 export default {
-    components: {
-        navbar: require('../../components/navbar.vue')
-    },
+  components: {
+    navbar: require('../../components/navbar.vue')
+  }
 }
 </script>
-

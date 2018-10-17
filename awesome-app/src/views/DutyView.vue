@@ -9,28 +9,28 @@
 </template>
 
 <script>
-  const modal = weex.requireModule('modal')
-  const LOADMORE_COUNT = 4
+const modal = weex.requireModule('modal')
+const LOADMORE_COUNT = 4
 
-  export default {
-    data () {
-      return {
-        lists: [1, 2, 3, 4, 5]
-      }
-    },
-    methods: {
-      fetch (event) {
-        modal.toast({ message: 'loadmore', duration: 1 })
+export default {
+  data () {
+    return {
+      lists: [1, 2, 3, 4, 5]
+    }
+  },
+  methods: {
+    fetch (event) {
+      modal.toast({ message: 'loadmore', duration: 1 })
 
-        setTimeout(() => {
-          const length = this.lists.length
-          for (let i = length; i < length + LOADMORE_COUNT; ++i) {
-            this.lists.push(i + 1)
-          }
-        }, 800)
-      }
+      setTimeout(() => {
+        const length = this.lists.length
+        for (let i = length; i < length + LOADMORE_COUNT; ++i) {
+          this.lists.push(i + 1)
+        }
+      }, 800)
     }
   }
+}
 </script>
 
 <style scoped>
